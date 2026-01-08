@@ -1,8 +1,8 @@
-import { Button } from "./Button";
+import { Button } from "../Simple Button/Button";
 import type { Meta, StoryFn } from "@storybook/react";
 
 const meta: Meta<typeof Button> = {
-  title: "components/Buttons",
+  title: "components/Buttons/Simple Button/Button",
   component: Button,
   argTypes: { handleClick: { action: "the Button clicked" } },
 };

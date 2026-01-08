@@ -11,12 +11,16 @@ export default meta;
 
 const Template: StoryFn<typeof TextArea> = (args) => {
   return (
-    <div className="w-full h-full flex justify-center mt-4">
-      <TextArea />
+    <div className="flex justify-center mt-4">
+      <TextArea  {...args}/>
     </div>
   );
 };
 
 export const TextAreaStory = Template.bind({});
 TextAreaStory.storyName = "TextArea";
-TextAreaStory.args = {};
+TextAreaStory.args = {
+  label: "Description",
+  type: "textarea",
+  value: "",
+};
