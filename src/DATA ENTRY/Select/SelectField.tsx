@@ -1,8 +1,6 @@
 import {
   useState,
   type ChangeEvent,
-  type ChangeEventHandler,
-  type SelectHTMLAttributes,
 } from "react";
 
 export type SelectFieldProps = {};
