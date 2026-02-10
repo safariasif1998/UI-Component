@@ -2,7 +2,7 @@ import UserName from "./UserName";
 import type { Meta, StoryFn } from "@storybook/react";
 
 const meta: Meta<typeof UserName> = {
-  title: "DATA ENTRY/INPUTS/UserName",
+  title: "DATA ENTRY/INPUTS",
   component: UserName,
 };
 
