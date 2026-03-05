@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { ClassNames } from "storybook/theming";
 
 export type UserNameProps = {
   label: string;
