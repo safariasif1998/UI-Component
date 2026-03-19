@@ -3,7 +3,7 @@ import CheckBox from "./CheckBox";
 import type { Meta, StoryFn } from "@storybook/react";
 
 const meta: Meta<typeof CheckBox> = {
-  title: "components/CheckBoxes",
+  title: "components/CheckBoxes/CheckBox/CheckBox",
   component: CheckBox,
   argTypes: { handleCheck: { action: "checked" } },
 };

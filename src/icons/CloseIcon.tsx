@@ -1,16 +1,20 @@
 export type CloseIconProps = {
-  handleClose: () => void;
+  className?: string;
+  handleClose?: () => void;
 };
 
 export function CloseIcon(props: CloseIconProps) {
-  const { handleClose } = props;
+  const { handleClose, className } = props;
 
   return (
-    <button onClick={handleClose}>
+
       <svg
         data-testid="dialogCloseIcon"
         fill="currentColor"
-        className="my-auto text-gray-600 pl-1 cursor-pointer hover:text-blue-500"
+        className={
+          className ||
+          "my-auto text-gray-600 pl-1 cursor-pointer hover:text-blue-500"
+        }
         aria-hidden="true"
         width="24"
         height="24"
@@ -22,6 +26,5 @@ export function CloseIcon(props: CloseIconProps) {
           fill="currentColor"
         ></path>
       </svg>
-    </button>
   );
 }

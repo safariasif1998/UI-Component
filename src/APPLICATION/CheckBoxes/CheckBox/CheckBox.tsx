@@ -1,25 +1,29 @@
-import { CheckBoxIcon } from "../../icons/CheckBoxIcon";
+import { CheckBoxIcon } from "../../../icons/CheckBoxIcon";
 
 export type CheckBoxProps = {
-  id: number;
-  label: string;
-  value: boolean;
-  handleCheck: () => void;
-  checkBoxStateValue: boolean;
+  id?: number | string;
+  label?: string;
+  value?: boolean;
+  handleUpdate: (id: string | number) => void;
+  checkBoxStateValue?: boolean;
 };
 
 function CheckBox(props: CheckBoxProps) {
-  const { id, label, handleCheck, checkBoxStateValue } = props;
+  const { id, label, value, handleUpdate } = props;
+
+  function handleClick() {
+    handleUpdate(id as number);
+  }
   return (
     <div className={`flex`}>
       <label
-        className={`flex px-2 py-2 items-center cursor-pointer relative`}
+        className={`flex px-1 py-2 items-center cursor-pointer relative`}
         htmlFor={String(id)}
       >
         <input
-          onChange={handleCheck}
+          onChange={handleClick}
           type="checkbox"
-          checked={checkBoxStateValue}
+          checked={value}
           className="peer h-4 w-4 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300"
           id={String(id)}
         />
