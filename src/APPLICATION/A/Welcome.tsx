@@ -1,8 +1,14 @@
 import welcomeImage from "../../../public/welcome.svg";
 
-export type WelcomeProps = {};
+export type WelcomeProps = {
+  name?: string;
+  lastName?: string;
+  position?: string;
+  startDate?: string;
+};
 
 export function Welcome(props: WelcomeProps) {
+  const { name ="Asif", lastName ="Safari", position ="", startDate ="02 Feb 2026" } = props;
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-slate-50 via-white to-slate-100 flex items-center justify-center px-6">
       <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
@@ -39,13 +45,14 @@ export function Welcome(props: WelcomeProps) {
 
           <div className="flex items-center gap-4 bg-white/70 backdrop-blur-md border border-slate-200 rounded-xl px-5 py-3 shadow-sm w-fit">
             <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white font-semibold">
-              A
+              {name?.charAt(0)}{lastName.charAt(0)}
             </div>
             <div>
               <p className="text-sm font-semibold text-slate-800">
-                Asif Safari
+                {name} {lastName}
               </p>
-              <p className="text-xs text-slate-500">Started • 02 Feb 2026</p>
+              <p className="text-xs text-slate-500">{position}</p>
+              <p className="text-xs text-slate-500">Started • {startDate}</p>
             </div>
           </div>
         </div>

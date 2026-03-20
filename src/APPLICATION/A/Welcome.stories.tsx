@@ -26,5 +26,8 @@ export const WelcomeStory = Template.bind({});
 WelcomeStory.storyName = 'Welcome';
 
 WelcomeStory.args = {
-  
+  name: "Asif",
+  lastName: "Safari",
+  position: "Junior Software Developer",
+  startDate:"02 Feb 2026",
 };
