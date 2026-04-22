@@ -106,14 +106,7 @@ export function MultiSelect(props: MultiSelectProps) {
                         ))}
                       </div>
                     </div>
-                  ) : (
-                    <input
-                      id="multi-select"
-                      type="text"
-                      className="px-2 py-1.5 outline-none rounded-l w-full"
-                      placeholder={placeHolder}
-                    />
-                  )}
+                  ) : null}
                 </div>
               ) : (
                 <input
@@ -133,14 +126,14 @@ export function MultiSelect(props: MultiSelectProps) {
               )}
               {showSearchBox && (
                 <button onClick={handleSearchBox}>
-                  {selectedItems?.length ? (
+                  {selectedItems?.length && (
                     <SearchIcon className="my-auto fill-gray-700 mx-1.5 w-4 h-4" />
-                  ) : null}
+                  )}
                 </button>
               )}
               {!showSearchBox && selectedItems?.length && (
                 <span className="border rounded-full inline-flex text-center items-center p-3 cursor-pointer  bg-green-700 text-white justify-center self-center content-center w-5 h-5">
-                  {selectedItems.length}
+                  {selectedItems.length>0? selectedItems.length : ""}
                 </span>
               )}
               <button onClick={handleChevron} className="group">
