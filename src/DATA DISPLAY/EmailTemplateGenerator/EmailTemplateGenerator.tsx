@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { MoonStar } from "../../icons/MoonStar";
 import { Light } from "../../icons/Light";
 import { CheckboxSwitcher } from "../../APPLICATION/CheckBoxes/CheckboxSwitcher/CheckboxSwitcher";
 import Editor from "@monaco-editor/react";
 import type { OnChange } from "@monaco-editor/react";
 import { Globe } from "../../icons/Globe";
+import * as monaco from "monaco-editor";
 import { DoubleChevronUp } from "../../icons/DoubleChevronUp";
 
 export type EmailTemplateGeneratorProps = {
@@ -16,6 +17,8 @@ export function EmailTemplateGenerator(props: EmailTemplateGeneratorProps) {
   const { value, onUpdate } = props;
   const [activeTab, setActiveTab] = useState<"content" | "preView">("preView");
   const [activeMood, setActiveMood] = useState<"dark" | "light">("light");
+  const [scrollTop, setScrollTop] = useState(false);
+  const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
 
   // It's derived state from activeMood. isDarkMood might be true or false.
   const isDarkMode = activeMood === "dark";
@@ -33,6 +36,40 @@ export function EmailTemplateGenerator(props: EmailTemplateGeneratorProps) {
     if (value !== undefined) {
       onUpdate?.(value ?? "");
     }
+  };
+  const handleMount = (editor: monaco.editor.IStandaloneCodeEditor) => {
+    editorRef.current = editor;
+    editor.focus();
+
+    editor.onDidScrollChange((e) => {
+      handleScroll(e);
+    });
+  };
+  const handleScrollToTop = () => {
+    const editor = editorRef.current;
+    if (!editor) return;
+
+    const current = editor.getScrollTop();
+    const duration = 250;
+    const start = performance.now();
+
+    const animate = (time: number) => {
+      const progress = Math.min((time - start) / duration, 1);
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+      const next = current * (1 - easeOut);
+
+      editor.setScrollTop(next);
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
+  };
+
+  const handleScroll = (e: any) => {
+    setScrollTop(e.scrollTop > 200);
   };
 
   const previewHtml = value;
@@ -83,6 +120,7 @@ export function EmailTemplateGenerator(props: EmailTemplateGeneratorProps) {
                 theme="vs"
                 value={value}
                 onChange={handleChange}
+                onMount={handleMount}
                 options={{
                   minimap: { enabled: false },
                   fontSize: 14,
@@ -110,9 +148,25 @@ export function EmailTemplateGenerator(props: EmailTemplateGeneratorProps) {
                 }}
               />
             </div>
+            {scrollTop && (
+              <button
+                title="click here to jump up"
+                role="button"
+                tabIndex={0}
+                aria-label="Jump to top"
+                onClick={handleScrollToTop}
+                className="absolute right-10 bottom-10  flex items-center justify-center w-10 h-10 rounded-full text-center content-center animate-bounce cursor-pointer bg-green-500 hover:bg-green-700 transition-all duration-200"
+              >
+                <DoubleChevronUp
+                  width="24"
+                  height="24"
+                  className="text-white"
+                />
+              </button>
+            )}
           </div>
         ) : (
-          <div className="w-full h-full overflow-auto">
+          <div className="w-full h-full">
             {value && <iframe className="w-full h-full" srcDoc={previewHtml} />}
           </div>
         )}

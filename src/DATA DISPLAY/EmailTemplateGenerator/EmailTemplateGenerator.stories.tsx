@@ -39,6 +39,13 @@ EmailTemplateGeneratorStory.args = {
   <title>Document</title>
   <style>
     /* From Uiverse.io by Yaya12085 */ 
+body{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  width: full;
+  height: full;
+}
 .card {
   position: relative;
   text-align: left;
@@ -48,7 +55,7 @@ EmailTemplateGeneratorStory.args = {
   align-items: center;
   width: full;
   min-height:500px;
-  height: full;
+  height: 100%;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   background-color: #fff;
 }
