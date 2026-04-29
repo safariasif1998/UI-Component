@@ -10,7 +10,7 @@ export default meta;
 
 const Template: StoryFn<typeof Gallery> = (args) => {
   return (
-    <div>
+    <div className="w-full h-full min-h-[300px]">
       <Gallery {...args} />
     </div>
   );
