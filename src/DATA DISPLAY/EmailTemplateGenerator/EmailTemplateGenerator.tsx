@@ -83,8 +83,8 @@ export function EmailTemplateGenerator(props: EmailTemplateGeneratorProps) {
   const previewHtml = value;
 
   return (
-    <div className="m-0 p-0 w-full h-screen flex flex-col">
-      <nav className="flex justify-between items-center border border-gray-200 shadow-lg rounded-b-none rounded-t py-8 w-full px-10">
+    <div className="m-0 p-0  w-full h-full flex flex-col">
+      <nav className="flex justify-between items-center border border-gray-200 shadow-lg rounded-b-none rounded-t py-6 w-full px-10">
         <div className="left-section flex  gap-x-5 items-center">
           {tabs.map((tab) => (
             <button
@@ -97,28 +97,7 @@ export function EmailTemplateGenerator(props: EmailTemplateGeneratorProps) {
             </button>
           ))}
         </div>
-        {/* <div className="left-section flex  gap-x-5 items-center">
-          <button
-            onClick={handleTab}
-            data-tab="preView"
-            className={`border-b-4 select-none  py-2 px-1 cursor-pointer duration-200 transition-all ${activeTab === "preView" ? " border-green-600 font-bold transition-all duration-200" : "border-transparent"}`}
-          >
-            Preview
-          </button>
-          <button
-            onClick={handleTab}
-            data-tab="content"
-            className={`border-b-4 select-none py-2 px-1 cursor-pointer  duration-200 transition-all ${activeTab === "content" ? " border-green-600 font-bold" : "border-transparent"}`}
-          >
-            Content
-          </button>
-          <div className="flex justify-center items-center gap-x-1">
-            <button className="opacity-30" disabled={true}>
-              Languages
-            </button>
-            <Globe className="w-4 h-4 text-gray-500 mt-0.5" />
-          </div> 
-        </div>*/}
+
         <div className="right-section flex items-center gap-x-2">
           <CheckboxSwitcher
             checked={isDarkMode}
@@ -130,7 +109,7 @@ export function EmailTemplateGenerator(props: EmailTemplateGeneratorProps) {
           />
         </div>
       </nav>
-      <main className="flex-1 w-full h-full">
+      <main className="flex-1 w-full h-screen">
         {activeTab === "content" ? (
           <div className="w-full h-full relative border-none">
             <div className="w-full h-full rounded-t-none rounded-b overflow-hidden bg-white">
