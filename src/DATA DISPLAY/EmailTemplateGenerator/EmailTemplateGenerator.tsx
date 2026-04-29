@@ -8,13 +8,21 @@ import { Globe } from "../../icons/Globe";
 import * as monaco from "monaco-editor";
 import { DoubleChevronUp } from "../../icons/DoubleChevronUp";
 
+export type Tab = {
+  id: number;
+  label: string;
+  dataTab: string;
+  disable: boolean;
+};
+
 export type EmailTemplateGeneratorProps = {
+  tabs: Tab[];
   value: string;
   onUpdate?: (value: string) => void;
 };
 
 export function EmailTemplateGenerator(props: EmailTemplateGeneratorProps) {
-  const { value, onUpdate } = props;
+  const { tabs, value, onUpdate } = props;
   const [activeTab, setActiveTab] = useState<"content" | "preView">("preView");
   const [activeMood, setActiveMood] = useState<"dark" | "light">("light");
   const [scrollTop, setScrollTop] = useState(false);
@@ -78,6 +86,18 @@ export function EmailTemplateGenerator(props: EmailTemplateGeneratorProps) {
     <div className="m-0 p-0 w-full h-screen flex flex-col">
       <nav className="flex justify-between items-center border border-gray-200 shadow-lg rounded-b-none rounded-t py-8 w-full px-10">
         <div className="left-section flex  gap-x-5 items-center">
+          {tabs.map((tab) => (
+            <button
+              onClick={handleTab}
+              disabled={tab.disable}
+              data-tab={tab.dataTab}
+              className={`border-b-4 select-none py-2 px-1 cursor-pointer duration-200 transition-all ${activeTab === tab.dataTab  ? " border-green-600 font-bold transition-all duration-200" : "border-transparent"} ${tab.disable && "opacity-30"}`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+        {/* <div className="left-section flex  gap-x-5 items-center">
           <button
             onClick={handleTab}
             data-tab="preView"
@@ -97,8 +117,8 @@ export function EmailTemplateGenerator(props: EmailTemplateGeneratorProps) {
               Languages
             </button>
             <Globe className="w-4 h-4 text-gray-500 mt-0.5" />
-          </div>
-        </div>
+          </div> 
+        </div>*/}
         <div className="right-section flex items-center gap-x-2">
           <CheckboxSwitcher
             checked={isDarkMode}

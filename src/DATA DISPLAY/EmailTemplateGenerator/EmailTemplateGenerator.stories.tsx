@@ -22,7 +22,7 @@ const Template: StoryFn<typeof EmailTemplateGenerator> = (args) => {
     }
   };
   return (
-    <div>
+    <div className="h-screen">
       <EmailTemplateGenerator {...args} value={value} onUpdate={handleChange} />
     </div>
   );
@@ -31,6 +31,11 @@ const Template: StoryFn<typeof EmailTemplateGenerator> = (args) => {
 export const EmailTemplateGeneratorStory = Template.bind({});
 EmailTemplateGeneratorStory.storyName = "EmailTemplateGenerator";
 EmailTemplateGeneratorStory.args = {
+  tabs: [
+    { id: 1, label: "Content", dataTab: "content", disable: false },
+    { id: 2, label: "Preview", dataTab: "preView", disable: false },
+    { id: 3, label: "Languages", dataTab: "language", disable: true },
+  ],
   value: `<!DOCTYPE html>
 <html lang="en">
 <head>
