@@ -1,7 +1,11 @@
-export type PlusIconProps = {};
+export type PlusIconProps = {
+  className?: string,
+  strokeWidth? : number
+
+};
 
 export function PlusIcon(props: PlusIconProps) {
-  const {} = props;
+  const {className,strokeWidth} = props;
 
   return (
     <svg
@@ -11,10 +15,10 @@ export function PlusIcon(props: PlusIconProps) {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      className="lucide lucide-plus-icon lucide-plus"
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={`lucide lucide-plus-icon lucide-plus ${className}`}
     >
       <path d="M5 12h14" />
       <path d="M12 5v14" />
