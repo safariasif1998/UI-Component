@@ -14,6 +14,7 @@ const template: StoryFn<typeof NumberInput> = (args) => {
   const [error, setError] = useState<string>(args.error ?? "");
   const [required, setRequired] = useState<boolean>(args.required ?? false);
 
+
   const min = args.min ?? 0;
   const max = args.max ?? 100;
   const step = args.step ?? 1;
@@ -44,11 +45,10 @@ const template: StoryFn<typeof NumberInput> = (args) => {
     console.log("Focus event:", event.type);
   };
 
-  const handleBlur = (
-    event: React.FocusEvent<HTMLInputElement>,
-  ) => {
-    if (required && !value) {
-      setError("Please fill out this Field. It is required..")
+  const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+    console.log(value + "in Blur");
+    if (required && !value && Number(value) < min) {
+      setError("Please fill out this Field. It is required..");
     }
     console.log(event);
   };
@@ -73,7 +73,7 @@ const template: StoryFn<typeof NumberInput> = (args) => {
         onBlur={handleBlur}
         value={value}
         error={error}
-        required= {required}
+        required={required}
         onDecrement={handleDecrement}
         onIncrement={handleIncrement}
       />
