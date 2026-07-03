@@ -89,7 +89,7 @@ Possible prefixes:
 - **Story**: changes to the Storybook
 - **Style**: style or formatting change
 - **Test**: test a feature
-- **...**: Trust me I am Jair
+- **...**: Trust me Asif
 
 `<source>` [optional] is the changed file
 
