@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Exclamation } from "../../icons/Exclamation";
 import { PlusIcon } from "../../icons/PlusIcon";
 import { MinusIcon } from "../../icons/MinusIcon";
@@ -69,8 +69,6 @@ export function NumberInput(props: NumberInputProps) {
     onDecrement,
     onIncrement,
   } = props;
-
-  const [style, setStyle] = useState<boolean>(false);
 
   function handelChange(event: React.ChangeEvent<HTMLInputElement>) {
     const raw = event.target.value;
@@ -167,7 +165,7 @@ export function NumberInput(props: NumberInputProps) {
             <span className="text-gray-200 select-none">|</span>
             <button
               onClick={handleIncrement}
-              className="cursor-pointer select-none text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-all duration-200 h-full p-0 m-0 px-3 overflow-hidden rounded-r delay-75 ease-in-out"
+              className={`cursor-pointer select-none text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-all duration-200 h-full p-0 m-0 px-3 overflow-hidden rounded-r delay-75 ease-in-out`}
             >
               <PlusIcon
                 className=" font-light text-sm w-5 h-5"
@@ -202,7 +200,7 @@ export function NumberInput(props: NumberInputProps) {
         >
           <div className="flex items-center gap-x-1">
             <label className="text-sm text-red-500">{label}</label>
-            <CircleX className="w-3 h-3 text-red-500" width={24} height={24} />
+            <Exclamation className="w-3 h-3 text-red-500" width={24} height={24} />
             <span className="text-red-500 text-sm">:</span>
           </div>
           <p className="text-sm text-red-500 select-none">{error}</p>
