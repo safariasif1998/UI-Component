@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Exclamation } from "../../icons/Exclamation";
+import { countries } from "countries-list";
 
 export type TelephoneNumberProps = {
   label?: string;
@@ -25,6 +26,8 @@ export function TelephoneNumber(props: TelephoneNumberProps) {
     readOnly,
     disabled,
   } = props;
+
+  const [countryList, setCountryList] = useState(countries);
 
   return (
     <div className="w-full h-full box-border p-0 m-0">
