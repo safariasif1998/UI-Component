@@ -200,7 +200,7 @@ export function NumberInput(props: NumberInputProps) {
         >
           <div className="flex items-center gap-x-1">
             <label className="text-sm text-red-500">{label}</label>
-            <CircleX className="w-3 h-3 text-red-500" width={24} height={24} />
+            <Exclamation className="w-3 h-3 text-red-500" width={24} height={24} />
             <span className="text-red-500 text-sm">:</span>
           </div>
           <p className="text-sm text-red-500 select-none">{error}</p>
