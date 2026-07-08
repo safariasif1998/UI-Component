@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Exclamation } from "../../icons/Exclamation";
 import { countries } from "countries-list";
+import { SquareChevronDown } from "../../icons/SquareChevronDown";
 
 export type TelephoneNumberProps = {
   label?: string;
@@ -27,18 +28,21 @@ export function TelephoneNumber(props: TelephoneNumberProps) {
     disabled,
   } = props;
 
-  const [countryList, setCountryList] = useState(countries);
+  const [countryList, setCountryList] = useState([countries]);
+  console.log(countryList);
 
   return (
     <div className="w-full h-full box-border p-0 m-0">
       <div className="w-full h-full box-border m-0 p-0">
         <label htmlFor="#">{label}</label>
-        <div className="w-full h-full flex border py-2 rounded border-gray-200">
-          <div className="flex gap-x-2">
-            <span className="px-1">Flag</span>
-            <input type="number" className="outline-none w-12" />
+        <div className="w-full h-8 flex border rounded border-gray-200">
+          <div className="flex gap-x-2 items-center px-2 h-full border-r border-gray-200 rounded-r-sm">
+            <span>Flag</span>
+            <button>
+              <SquareChevronDown className="w-5 h-5 cursor-pointer" />
+            </button>
           </div>
-          <div className="w-full">
+          <div className="w-full h-full px-2">
             <input
               type={type}
               id="phone"
@@ -80,6 +84,22 @@ export function TelephoneNumber(props: TelephoneNumberProps) {
           </div>
           <p className="text-sm text-red-500 select-none">{error}</p>
         </div>
+      </div>
+      <div className="w-full h-32 overflow-y-scroll border rounded-sm border-gray-200">
+        <input type="text" className="w-full" />
+        {Object.values(countryList[0]).map((country: any) => {
+          return (
+            <div className="flex px-2 py-2 gap-x-2 text-gray-800 cursor-pointer hover:bg-gray-100 transition-all duration-300 border-b-2 border-gray-200">
+              <li className="" key={country.name}>
+                {country.name}
+              </li>
+              <span>(
+                <span>+</span>
+                {country.phone})
+              </span>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
