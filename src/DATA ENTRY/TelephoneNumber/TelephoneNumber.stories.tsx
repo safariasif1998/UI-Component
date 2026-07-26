@@ -23,6 +23,8 @@ const template: StoryFn<typeof TelephoneNumber> = (args) => {
     const value = event.target.value;
     if (value) {
       setShowTelePhoneIcon(true);
+    } else {
+      setShowTelePhoneIcon(false);
     }
     if (!/^\d+$/.test(value.trim()) && value.length) {
       setError("Please Enter a valid Number!");
@@ -50,6 +52,7 @@ telephoneNumber.args = {
   type: "tel",
   value: "",
   placeholder: "77 1276 9890",
+  title:"Enter a Telephone eNumber.",
   labelDescription:
     "You should just enter a valid telephone number. I will call you back.",
   error: "",
