@@ -5,7 +5,6 @@ import Countries from "world-countries";
 
 import { Chevron } from "../../icons/Chevron";
 import { PhoneIcon } from "../../icons/PhoneIcon";
-import { ThreeDots } from "react-loader-spinner";
 
 type CountryItem = {
   code: string;
@@ -170,16 +169,6 @@ export function TelephoneNumber(props: TelephoneNumberProps) {
         >
           {labelDescription}
         </span>
-        <ThreeDots
-          visible={true}
-          height="80"
-          width="80"
-          color="#4fa94d"
-          radius="9"
-          ariaLabel="three-dots-loading"
-          wrapperStyle={{}}
-          wrapperClass=""
-        />
         <div
           className={`flex gap-x-2 items-center
                             transition-all duration-500 ease-in-out overflow-hidden
