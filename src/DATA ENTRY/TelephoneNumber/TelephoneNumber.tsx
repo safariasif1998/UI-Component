@@ -35,6 +35,7 @@ export type TelephoneNumberProps = {
   type: string;
   value?: number | string;
   placeholder?: string;
+  title?: string;
   labelDescription?: string;
   error?: string;
   required?: boolean;
@@ -51,6 +52,7 @@ export function TelephoneNumber(props: TelephoneNumberProps) {
     type = "tel",
     value,
     placeholder,
+    title,
     labelDescription,
     error,
     required,
@@ -139,6 +141,7 @@ export function TelephoneNumber(props: TelephoneNumberProps) {
             <input
               value={value}
               type={type}
+              title={title}
               id="phone"
               name="phone"
               pattern="^\+?[0-9\s\-]{7,15}$"
