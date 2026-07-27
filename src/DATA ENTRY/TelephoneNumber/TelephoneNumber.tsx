@@ -71,6 +71,7 @@ export function TelephoneNumber(props: TelephoneNumberProps) {
   const [filteredCountries, setFilteredCountries] = useState<
     CountryItem[] | null
   >(countryList);
+  const [borderBottom, setBorderBottom] = useState(false);
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     onChange?.(event);
@@ -78,6 +79,7 @@ export function TelephoneNumber(props: TelephoneNumberProps) {
 
   function handleBlur(event: React.ChangeEvent<HTMLInputElement>) {
     onBlur?.(event);
+    setBorderBottom(false);
   }
 
   function openModal(event: React.MouseEvent<HTMLButtonElement>) {
@@ -86,6 +88,11 @@ export function TelephoneNumber(props: TelephoneNumberProps) {
       setFilteredCountries(countries);
     }
   }
+
+  function handleFocus(event: React.FocusEvent<HTMLInputElement>) {
+    setBorderBottom(true);
+  }
+
   function handleSearch(value: string) {
     if (!value.trim()) {
       setFilteredCountries(countries);
@@ -111,7 +118,7 @@ export function TelephoneNumber(props: TelephoneNumberProps) {
             )}
           </label>
         </div>
-        <div className="w-full h-10 flex border rounded border-gray-200">
+        <div className=" relative border w-full h-10 flex  rounded border-gray-200">
           <div className="flex h-full  justify-center items-center border-r group border-gray-200 w-16 cursor-pointer">
             {selectedCountry && (
               <div className=" flex justify-center items-center w-full h-full">
@@ -152,6 +159,7 @@ export function TelephoneNumber(props: TelephoneNumberProps) {
               disabled={disabled}
               onChange={handleChange}
               onBlur={handleBlur}
+              onFocus={handleFocus}
             />
           </div>
           {showTelePhoneIcon && (
@@ -164,8 +172,22 @@ export function TelephoneNumber(props: TelephoneNumberProps) {
               </a>
             </div>
           )}
+
+          <span
+            className={`absolute bottom-0 left-1/2 w-full -translate-x-1/2 origin-center transition-transform duration-300 ease-out`}
+            style={{
+              height: "4px",
+              borderBottomLeftRadius: "4px",
+              borderBottomRightRadius: "4px",
+              borderBottom: borderBottom
+                ? "2px solid #0d1b29"
+                : "2px solid #d1d1d1",
+              transform: borderBottom ? "scaleX(1)" : "scaleX(0)",
+            }}
+          ></span>
         </div>
       </div>
+
       <div>
         <span
           className={`block text-sm my-1 pl-0.5 text-gray-600 select-none transition-all duration-500 ease-in-out`}
