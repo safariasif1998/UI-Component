@@ -22,12 +22,14 @@ export function LoginPage(props: LoginPageProps) {
           value=""
           type="text"
           label="Username"
+          name="userName"
           style={"bg-[111827FF] w-full"}
         />
         <UserName
           value=""
           type="password"
           label="Password"
+          name="password"
           style={"bg-[111827FF] w-full"}
         />
         <span className="text-sm my-2 block text-end">

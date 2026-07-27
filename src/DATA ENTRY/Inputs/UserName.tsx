@@ -5,10 +5,11 @@ export type UserNameProps = {
   value: string;
   type: string;
   style?: string;
+  name?: string;
 };
 
 function UserName(props: UserNameProps) {
-  const { label, value, type, style } = props;
+  const { label, value, type, style, name } = props;
   const [inputText, setInputText] = useState(value);
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -28,7 +29,7 @@ function UserName(props: UserNameProps) {
         onChange={handleChange}
         className="px-3 py-2.5 border  text-[#F3F4F6FF]  bg-[#111827FF] rounded-md  outline-none "
         id="input"
-        name="userName"
+        name={name}
         placeholder="write here..."
       />
     </div>
