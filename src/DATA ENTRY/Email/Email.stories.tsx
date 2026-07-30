@@ -56,10 +56,15 @@ EmailStory.storyName = "Email";
 
 EmailStory.args = {
   value: "",
+  label: "Email Component",
   type: "email",
   placeholder: "safari@me.org",
   error: "",
   readOnly: false,
   required: false,
   disabled: false,
+  multiple: true,
+  disableInfo: `This field is disabled. You cannot edit this field.`,
+  labelDescription:
+    "Please enter a valid email address. This email will be used for communication and account-related notifications.",
 };
