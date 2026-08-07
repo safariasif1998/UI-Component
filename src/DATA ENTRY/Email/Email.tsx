@@ -13,8 +13,11 @@ export type EmailProps = {
   disabled?: boolean;
   multiple?: boolean;
   disableInfo?: string;
+  showEmailICon?: boolean;
+  isValidEmail?: boolean;
   labelDescription?: string;
   onchange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
 };
 
 export function Email(props: EmailProps) {
@@ -28,9 +31,12 @@ export function Email(props: EmailProps) {
     required,
     disabled,
     multiple = true,
+    showEmailICon,
     disableInfo,
     labelDescription,
+    isValidEmail,
     onchange,
+    onBlur,
   } = props;
 
   const [borderBottom, setBorderBottom] = useState<boolean>(false);
@@ -42,6 +48,7 @@ export function Email(props: EmailProps) {
   const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     if (event) {
       setBorderBottom(false);
+      onBlur?.(event);
     }
   };
 
@@ -51,14 +58,22 @@ export function Email(props: EmailProps) {
     }
   };
 
+  function handleClick(event: React.MouseEvent<HTMLAnchorElement>) {
+    if (event && !isValidEmail) {
+      event.preventDefault();
+    }
+  }
+
   return (
     <div className="w-full h-full box-border m-0 p-0">
       <div className="">
         <div className="flex gap-x-1">
           <label htmlFor="Email">{label}</label>
-          <abbr title="Email is Required" className={``}>
-            *
-          </abbr>
+          {required && (
+            <abbr title="Email is Required" className={``}>
+              *
+            </abbr>
+          )}
         </div>
         <div className="relative border w-full h-10 flex  rounded border-gray-200">
           <input
@@ -76,14 +91,17 @@ export function Email(props: EmailProps) {
             onFocus={handleFocus}
             className="w-full outline-none px-2"
           />
-          <div className="w-14  border-l border-gray-200 group">
-            <a
-              href={`mailto`}
-              className={`group- w-full h-full flex items-center justify-center ${error ? "cursor-not-allowed" : "hover:bg-gray-200"}`}
-            >
-              <EmailIcon className="w-5 h-5 text-gray-700" />
-            </a>
-          </div>
+          {showEmailICon && (
+            <div className="w-14  border-l border-gray-200 group cursor-pointer">
+              <a
+                onClick={handleClick}
+                href={isValidEmail ? `mailto:${value}` : undefined}
+                className={`group- w-full h-full flex items-center justify-center ${error ? "cursor-not-allowed" : "hover:bg-gray-200"}`}
+              >
+                <EmailIcon className="w-5 h-5 text-gray-700" />
+              </a>
+            </div>
+          )}
           <span
             className={`absolute bottom-0 left-1/2 w-full -translate-x-1/2 origin-center transition-transform duration-300 ease-out`}
             style={{
