@@ -2,7 +2,6 @@ import React from "react";
 import { Exclamation } from "../../icons/Exclamation";
 import { PlusIcon } from "../../icons/PlusIcon";
 import { MinusIcon } from "../../icons/MinusIcon";
-import { CircleX } from "../../icons/CircleX";
 import { CircleCheckIcon } from "../../icons/CircleCheckIcon";
 
 export type NumberInputProps = {

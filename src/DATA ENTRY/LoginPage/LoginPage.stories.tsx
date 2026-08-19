@@ -3,7 +3,7 @@ import { LoginPage } from "./LoginPage";
 
 const meta = {
   component: LoginPage,
-  title: "DATA ENTRY/LoginPage",
+  title: "DATA ENTRY/LoginPage/LoginPage",
 } as Meta<typeof LoginPage>;
 
 export default meta;

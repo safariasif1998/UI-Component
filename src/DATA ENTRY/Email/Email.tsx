@@ -119,7 +119,7 @@ export function Email(props: EmailProps) {
       {disabled && <p className="text-gray-500 text-xs">{disableInfo}</p>}
       <div>
         <span
-          className={`block text-sm my-1 pl-0.5 text-gray-600 select-none transition-all duration-500 ease-in-out`}
+          className={`block text-xs my-1 pl-0.5 text-gray-600 select-none transition-all duration-500 ease-in-out`}
         >
           {labelDescription}
         </span>
@@ -134,7 +134,7 @@ export function Email(props: EmailProps) {
                                 `}
         >
           <div className="flex items-center gap-x-1">
-            <label className="text-sm text-red-500">{label}</label>
+            <label className="text-xs text-red-500">{label}</label>
             <Exclamation
               className="w-3 h-3 text-red-500"
               width={24}
@@ -142,7 +142,7 @@ export function Email(props: EmailProps) {
             />
             <span className="text-red-500 text-sm">:</span>
           </div>
-          <p className="text-sm text-red-500 select-none">{error}</p>
+          <p className="text-xs text-red-500 select-none">{error}</p>
         </div>
       </div>
     </div>
