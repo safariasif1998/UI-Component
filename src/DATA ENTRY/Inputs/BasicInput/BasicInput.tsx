@@ -58,45 +58,36 @@ export function BasicInput(props: InputProps) {
 
   return (
     <div className="w-full h-full box-border m-0 p-0">
-      <div className="">
-        <div className="flex gap-x-1 text-sm font-medium text-gray-700">
-          <label htmlFor="Email">{label}</label>
-          {required && (
-            <abbr title="Email is Required" className={``}>
-              *
-            </abbr>
-          )}
-        </div>
-        <div className="relative border w-full h-10 flex  rounded border-gray-200">
-          <input
-            value={value}
-            type={type}
-            name="Email"
-            id="Email"
-            placeholder={placeholder}
-            readOnly={readOnly}
-            required={required}
-            disabled={disabled}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            onFocus={handleFocus}
-            className="w-full outline-none px-2"
-          />
-          {children}
-          <span
-            className={`absolute bottom-0 left-1/2 w-full -translate-x-1/2 origin-center transition-transform duration-300 ease-out`}
-            style={{
-              height: "4px",
-              borderBottomLeftRadius: "4px",
-              borderBottomRightRadius: "4px",
-              borderBottom: borderBottom
-                ? "2px solid #0d1b29"
-                : "2px solid #d1d1d1",
-              transform: borderBottom ? "scaleX(1)" : "scaleX(0)",
-            }}
-          ></span>
-        </div>
+      <div className="relative border w-full h-10 flex  rounded border-gray-200">
+        <input
+          value={value}
+          type={type}
+          name="Email"
+          id="Email"
+          placeholder={placeholder}
+          readOnly={readOnly}
+          required={required}
+          disabled={disabled}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          onFocus={handleFocus}
+          className="w-full outline-none px-2"
+        />
+        {children}
+        <span
+          className={`absolute bottom-0 left-1/2 w-full -translate-x-1/2 origin-center transition-transform duration-300 ease-out`}
+          style={{
+            height: "4px",
+            borderBottomLeftRadius: "4px",
+            borderBottomRightRadius: "4px",
+            borderBottom: borderBottom
+              ? "2px solid #0d1b29"
+              : "2px solid #d1d1d1",
+            transform: borderBottom ? "scaleX(1)" : "scaleX(0)",
+          }}
+        ></span>
       </div>
+
       {disabled && <p className="text-gray-500 text-xs">{disableInfo}</p>}
       <div>
         <span
