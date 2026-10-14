@@ -15,9 +15,7 @@ function UserName(props: UserNameProps) {
     setInputText(event.target.value);
   }
   return (
-    <div
-      className={`flex flex-col static ${style ? style : "w-56 bg-white"}`}
-    >
+    <div className={`flex flex-col static ${style ? style : "w-56 bg-white"}`}>
       <label
         htmlFor="input"
         className="font-semibold relative top-3.5 bg-[#111827FF] z  m-0 ml-3 px-0 py-1  w-fit"

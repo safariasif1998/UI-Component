@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Chevron } from "../../icons/Chevron";
 import { CloseIcon } from "../../icons/CloseIcon";
 import { Globe } from "../../icons/Globe";
-import CheckBox from "../../APPLICATION/CheckBoxes/CheckBox/CheckBox";
+import CheckBox from "../../APPLICATIONS/CheckBoxes/CheckBox/CheckBox";
 import { SearchIcon } from "../../icons/SearchIcon";
 
 export type DropDownItem = {
@@ -133,7 +133,7 @@ export function MultiSelect(props: MultiSelectProps) {
               )}
               {!showSearchBox && selectedItems?.length && (
                 <span className="border rounded-full inline-flex text-center items-center p-3 cursor-pointer  bg-green-700 text-white justify-center self-center content-center w-5 h-5">
-                  {selectedItems.length>0? selectedItems.length : ""}
+                  {selectedItems.length > 0 ? selectedItems.length : ""}
                 </span>
               )}
               <button onClick={handleChevron} className="group">

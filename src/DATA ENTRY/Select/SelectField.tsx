@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Exclamation } from "../../icons/Exclamation";
 
-type option = { id: number; value: string; text: string };
+export type option = { id: number; value: string; label: string };
 
 export type SelectFieldProps = {
   value?: string;
@@ -46,9 +46,9 @@ function SelectField(props: SelectFieldProps) {
   }
 
   return (
-    <div className="w-full">
+    <div className={`w-full ${disable && "opacity-60"}`}>
       {label && (
-        <div className="flex gap-x-1">
+        <div className="flex gap-x-1 text-sm font-medium text-gray-700">
           <label htmlFor={label}>{label}</label>
           {required && <abbr>*</abbr>}
         </div>
@@ -66,7 +66,7 @@ function SelectField(props: SelectFieldProps) {
         >
           {options?.map((opt) => (
             <option key={opt.id} value={opt.value} className="">
-              {opt.text}
+              {opt?.label}
             </option>
           ))}
         </select>

@@ -11,7 +11,7 @@ const meta: Meta<typeof SelectField> = {
 export default meta;
 
 const Template: StoryFn<typeof SelectField> = (args) => {
-  const [value, setValue] = useState(args.options?.[0]?.value ?? "");
+  const [value, setValue] = useState<string>(args.options?.[0]?.value ?? "");
   const [error, setError] = useState(args.error ?? "");
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -57,12 +57,12 @@ SelectStory.args = {
     {
       id: 0,
       value: "",
-      text: "---",
+      label: "---",
     },
-    { id: 1, value: "option 1", text: "option one" },
-    { id: 2, value: "option 2", text: "option two" },
-    { id: 3, value: "option 3", text: "option three" },
-    { id: 4, value: "option 4", text: "option four" },
-    { id: 5, value: "option 5", text: "option five" },
+    { id: 1, value: "option 1", label: "option one" },
+    { id: 2, value: "option 2", label: "option two" },
+    { id: 3, value: "option 3", label: "option three" },
+    { id: 4, value: "option 4", label: "option four" },
+    { id: 5, value: "option 5", label: "option five" },
   ],
 };

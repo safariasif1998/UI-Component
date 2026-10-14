@@ -11,8 +11,8 @@ export default meta;
 
 const Template: StoryFn<typeof TextArea> = (args) => {
   return (
-    <div className="flex justify-center mt-4">
-      <TextArea  {...args}/>
+    <div className={"w-full h-full flex"}>
+      <TextArea {...args} />
     </div>
   );
 };

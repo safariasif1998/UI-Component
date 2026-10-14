@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { MoonStar } from "../../icons/MoonStar";
 import { Light } from "../../icons/Light";
-import { CheckboxSwitcher } from "../../APPLICATION/CheckBoxes/CheckboxSwitcher/CheckboxSwitcher";
+import { CheckboxSwitcher } from "../../APPLICATIONS/CheckBoxes/CheckboxSwitcher/CheckboxSwitcher";
 import Editor from "@monaco-editor/react";
 import type { OnChange } from "@monaco-editor/react";
 import { Globe } from "../../icons/Globe";
@@ -91,7 +91,7 @@ export function EmailTemplateGenerator(props: EmailTemplateGeneratorProps) {
               onClick={handleTab}
               disabled={tab.disable}
               data-tab={tab.dataTab}
-              className={`border-b-4 select-none py-2 px-1 cursor-pointer duration-200 transition-all ${activeTab === tab.dataTab  ? " border-green-600 font-bold transition-all duration-200" : "border-transparent"} ${tab.disable && "opacity-30"}`}
+              className={`border-b-4 select-none py-2 px-1 cursor-pointer duration-200 transition-all ${activeTab === tab.dataTab ? " border-green-600 font-bold transition-all duration-200" : "border-transparent"} ${tab.disable && "opacity-30"}`}
             >
               {tab.label}
             </button>
