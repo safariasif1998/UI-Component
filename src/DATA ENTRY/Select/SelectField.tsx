@@ -21,7 +21,6 @@ function SelectField(props: SelectFieldProps) {
     label,
     error,
     disable,
-    required,
     options,
     description,
     onChange,
@@ -47,13 +46,7 @@ function SelectField(props: SelectFieldProps) {
 
   return (
     <div className={`w-full ${disable && "opacity-60"}`}>
-      {label && (
-        <div className="flex gap-x-1 text-sm font-medium text-gray-700">
-          <label htmlFor={label}>{label}</label>
-          {required && <abbr>*</abbr>}
-        </div>
-      )}
-      <div className="relative w-full border border-gray-200 rounded pr-2">
+      <div className="relative w-full border border-gray-200 rounded pr-2 h-10">
         <select
           disabled={disable}
           name={label}
