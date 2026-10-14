@@ -11,6 +11,7 @@ import type { option } from "../../DATA ENTRY/Select/SelectField";
 import { Title } from "../../DATA ENTRY/Title/Title";
 import { InputRange } from "../../DATA ENTRY/Inputs/InputRange/InputRange";
 import { initState, reducer } from "./customReducer";
+import { Label } from "../../DATA ENTRY/Label/Label";
 
 export type FontTesterProps = {
   value?: string;
@@ -180,31 +181,27 @@ export function FontTester(props: FontTesterProps) {
     <div className="grid grid-cols-12 w-full gap-4">
       <div className="settings col-span-3 shadow-lg h-screen rounded-2xl border border-gray-100 px-5 py-10">
         <div className="gap-y-2 flex flex-col my-2 md:text-sm lg:text-md text-lg">
-          <SelectField
-            value={selectedFont}
-            disable={selected === null}
-            description="select one of the box and then you can test the fonts"
-            options={options}
-            label={label}
-            onChange={handleChangeFont}
-          />
+          <div>
+            <Label label={label} />
+            <SelectField
+              value={selectedFont}
+              disable={selected === null}
+              description="select one of the box and then you can test the fonts"
+              options={options}
+              onChange={handleChangeFont}
+            />
+          </div>
 
-          <SelectField
-            value={selectedFontSize}
-            disable={selected === null}
-            description="You can change here the size of your text"
-            options={textSize}
-            label="Size of Text"
-            onChange={handleChangeSizeOFText}
-          />
-          <SelectField
-            value={selectedFontUnit}
-            disable={selected === null}
-            description="Choose a unit for the font size, such as px, rem, or em."
-            options={fontUnitOptions}
-            label="Text units"
-            onChange={handleChangeUnitOFText}
-          />
+          <div>
+            <Label label="Text units" />
+            <SelectField
+              value={selectedFontUnit}
+              disable={selected === null}
+              description="Choose a unit for the font size, such as px, rem, or em."
+              options={fontUnitOptions}
+              onChange={handleChangeUnitOFText}
+            />
+          </div>
 
           {children}
         </div>

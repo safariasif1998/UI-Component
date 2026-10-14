@@ -4,6 +4,7 @@ import React, { useRef, useState } from "react";
 import { BasicInput } from "../../DATA ENTRY/Inputs/BasicInput/BasicInput";
 import { PlusIcon } from "../../icons/PlusIcon";
 import { Upload } from "../../icons/Upload";
+import { Label } from "../../DATA ENTRY/Label/Label";
 
 const meta = {
   component: FontTester,
@@ -76,6 +77,7 @@ const Template: StoryFn<typeof FontTester> = (args) => {
       className={"w-full h-full flex items-center justify-center min-h-[300px]"}
     >
       <FontTester {...args} newFont={newFont} options={options}>
+        <Label label="Enter your favorite font" />
         <BasicInput
           label="Enter your favorite font"
           placeholder="e.g newsreader"
