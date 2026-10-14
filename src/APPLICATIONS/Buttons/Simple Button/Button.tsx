@@ -1,6 +1,6 @@
 export type ButtonProps = {
   label: string;
-  handleClick: () => void;
+  handleClick?: () => void;
 };
 
 export function Button(props: ButtonProps) {
