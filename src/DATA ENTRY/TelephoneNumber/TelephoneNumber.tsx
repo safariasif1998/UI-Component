@@ -90,7 +90,9 @@ export function TelephoneNumber(props: TelephoneNumberProps) {
   }
 
   function handleFocus(event: React.FocusEvent<HTMLInputElement>) {
-    setBorderBottom(true);
+    if (event) {
+      setBorderBottom(true);
+    }
   }
 
   function handleSearch(value: string) {

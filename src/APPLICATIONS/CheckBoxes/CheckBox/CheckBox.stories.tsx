@@ -5,7 +5,6 @@ import type { Meta, StoryFn } from "@storybook/react";
 const meta: Meta<typeof CheckBox> = {
   title: "components/CheckBoxes/CheckBox/CheckBox",
   component: CheckBox,
-  argTypes: { handleCheck: { action: "checked" } },
 };
 
 export default meta;
@@ -17,7 +16,6 @@ const Template: StoryFn<typeof CheckBox> = (args) => {
   }, [args.value]);
 
   const handleCheck = () => {
-    args.handleCheck();
     setCheckBoxStateValue(!checkBoxStateValue);
     console.log(checkBoxStateValue);
   };

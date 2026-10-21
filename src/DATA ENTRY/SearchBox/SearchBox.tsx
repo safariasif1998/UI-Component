@@ -10,7 +10,7 @@ export function SearchBox(props: SearchBoxProps) {
   const { onSearch } = props;
   const [showCloseIcon, setShowCloseIcon] = useState(false);
   const [inputValue, setInputValue] = useState("");
-  const [showSearchIcon, setShowSearchIcon] = useState(true);
+  const [, setShowSearchIcon] = useState(true);
 
   useEffect(() => {
     if (inputValue.length > 0) {

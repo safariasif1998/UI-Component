@@ -10,7 +10,7 @@ export default meta;
 
 const Template: StoryFn<typeof Button> = (args) => {
   const handleClick = () => {
-    args.handleClick();
+    args.handleClick?.();
     console.log("clicked");
   };
   return (
